@@ -68,8 +68,12 @@ public class DemoGUI1 extends JFrame {
             }
         };
         button.addActionListener(buttonListener);
-        //radioUp.addActionListener(buttonListener);
-        //radioDown.addActionListener(buttonListener);
+
+        /*
+        Just to show that other components may share the same listener
+        radioUp.addActionListener(buttonListener);
+        radioDown.addActionListener(buttonListener);
+        */
 
         this.setVisible(true);
     }
