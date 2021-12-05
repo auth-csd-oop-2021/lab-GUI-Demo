@@ -51,13 +51,14 @@ public class DemoGUI1 extends JFrame {
         //text field
         jTextField = new JTextField();
         jTextField.setText("0");
-        jTextField.setPreferredSize(new Dimension(100, jTextField.getPreferredSize().height));
+        jTextField.setPreferredSize(new Dimension(100, 30));
         this.add(jTextField);
 
         //listeners
         buttonListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println(e.getActionCommand());
                 String text = jTextField.getText();
                 if (radioUp.isSelected()) {
                     jTextField.setText(api.increase(text));
@@ -67,6 +68,8 @@ public class DemoGUI1 extends JFrame {
             }
         };
         button.addActionListener(buttonListener);
+        //radioUp.addActionListener(buttonListener);
+        //radioDown.addActionListener(buttonListener);
 
         this.setVisible(true);
     }
