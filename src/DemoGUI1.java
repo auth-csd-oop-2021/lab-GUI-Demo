@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * screenshot).
  * <p>
  * Version that defines the ActionListener inline
- *
+ * <p>
  * See @see <a href="https://docs.oracle.com/javase/tutorial/uiswing/index.html">here</a> for more details on Swing.
  */
 public class DemoGUI1 extends JFrame {
@@ -20,6 +20,8 @@ public class DemoGUI1 extends JFrame {
     JRadioButton radioUp, radioDown;
 
     ActionListener buttonListener;
+
+    Api api = new Api();
 
     public void buildFrame() {
         this.setTitle("Demo GUI App");
@@ -56,11 +58,11 @@ public class DemoGUI1 extends JFrame {
         buttonListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int value = Integer.parseInt(jTextField.getText());
+                String text = jTextField.getText();
                 if (radioUp.isSelected()) {
-                    jTextField.setText(value + 1 + "");
+                    jTextField.setText(api.increase(text));
                 } else {
-                    jTextField.setText(value - 1 + "");
+                    jTextField.setText(api.decrease(text));
                 }
             }
         };
